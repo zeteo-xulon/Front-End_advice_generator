@@ -12,7 +12,7 @@
         }
         catch(err){ console.log(err) }
       },
-      async rollDice(){ try{ setTimeout(await this.getAdvice(),2000) } 
+      async rollDice(){ try{ await this.getAdvice() } 
       catch(err){ console.log(err) }}
     },
     beforeMount(){ this.getAdvice() }
@@ -31,11 +31,11 @@
         <div class="double__bar"></div>
         <div class="double__bar"></div>
       </div>
-      
+
     <div class="stylish__bar"></div>
   </div>
 
-  <div class="dice__circle">
+  <div class="dice__circle" @click="rollDice">
     <img src="../assets/images/icon-dice.svg" 
     class="advice__button" 
     id="adviceButton" 
